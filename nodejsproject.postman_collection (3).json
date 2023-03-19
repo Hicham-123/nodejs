@@ -1,0 +1,1215 @@
+{
+	"info": {
+		"_postman_id": "f6890914-d8fd-4113-b73e-55f844c9c3cc",
+		"name": "nodejsproject",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17810952"
+	},
+	"item": [
+		{
+			"name": "creer un compte",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nom\":\"test\",\r\n    \"prenom\":\"test\",\r\n    \"naissance\":\"1999-09-09\",\r\n    \"photo\":null,\r\n    \"phone\":null,\r\n    \"email\":\"test@test.com\",\r\n    \"mot_de_passe\":\"Test123!\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "65.38.68.41:3000/users/register/",
+					"host": [
+						"65",
+						"38",
+						"68",
+						"41"
+					],
+					"port": "3000",
+					"path": [
+						"users",
+						"register",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ce connecter",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjc4NzMxOTMwfQ.QMWIDK0HASOSq-3rnpVUzBx0udn6TOu7T2-5gvtOnps",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\":\"test@test.com\",\r\n    \"mot_de_passe\":\"Test123!\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "65.38.68.41:3000/users/login",
+					"host": [
+						"65",
+						"38",
+						"68",
+						"41"
+					],
+					"port": "3000",
+					"path": [
+						"users",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "voir mes information de compte",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNjc4ODExMzc4fQ.Cs4ewfcnrI3GTbaqqBSPloCPUg0HUGyzBr2wnxMqjJQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "65.38.68.41:3000/users/3",
+					"host": [
+						"65",
+						"38",
+						"68",
+						"41"
+					],
+					"port": "3000",
+					"path": [
+						"users",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "voir les information de compte de tout les client avec un access admin",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjc4NzY3Njk1fQ.JALSA5SrXqCjkOYWPo09fFzolaQuAXPExH4iamvWrNA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "65.38.68.41:3000/users/",
+					"host": [
+						"65",
+						"38",
+						"68",
+						"41"
+					],
+					"port": "3000",
+					"path": [
+						"users",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "utilise un acces admin pour donner un role a mon nouveau utlisateur comme secretaire",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjc4NzY3Njk1fQ.JALSA5SrXqCjkOYWPo09fFzolaQuAXPExH4iamvWrNA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\":2,\r\n    \"nom\":\"secretaire\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "65.38.68.41:3000/users/role",
+					"host": [
+						"65",
+						"38",
+						"68",
+						"41"
+					],
+					"port": "3000",
+					"path": [
+						"users",
+						"role"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "verifier le role d'un user avec un access admin",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjc4NzY3Njk1fQ.JALSA5SrXqCjkOYWPo09fFzolaQuAXPExH4iamvWrNA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "65.38.68.41:3000/users/role/2",
+					"host": [
+						"65",
+						"38",
+						"68",
+						"41"
+					],
+					"port": "3000",
+					"path": [
+						"users",
+						"role",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "suppeimer le compte user avec access du meme utilisateur",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNjc4NzY3NTk2fQ.pwYMIIQYJyKYqB84EXfQtql3YnapUZJ84hnL9fmPysI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "65.38.68.41:3000/users/2",
+					"host": [
+						"65",
+						"38",
+						"68",
+						"41"
+					],
+					"port": "3000",
+					"path": [
+						"users",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "supprimer un compte user avec un access admin",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjc4NzY3Njk1fQ.JALSA5SrXqCjkOYWPo09fFzolaQuAXPExH4iamvWrNA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\":3\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "65.38.68.41:3000/users/",
+					"host": [
+						"65",
+						"38",
+						"68",
+						"41"
+					],
+					"port": "3000",
+					"path": [
+						"users",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "afficher tout les type de voiture",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "65.38.68.41:3000/type",
+					"host": [
+						"65",
+						"38",
+						"68",
+						"41"
+					],
+					"port": "3000",
+					"path": [
+						"type"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "afficher un type avec son id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "65.38.68.41:3000/type/1",
+					"host": [
+						"65",
+						"38",
+						"68",
+						"41"
+					],
+					"port": "3000",
+					"path": [
+						"type",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ajouter un type de voiture",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNjc4ODExMzc4fQ.Cs4ewfcnrI3GTbaqqBSPloCPUg0HUGyzBr2wnxMqjJQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"marque\":\"ford\",\r\n    \"model\":\"mustang\",\r\n    \"description\":\"The Ford Mustang is a series of American automobiles manufactured by Ford. In continuous production since 1964.\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "65.38.68.41:3000/type/",
+					"host": [
+						"65",
+						"38",
+						"68",
+						"41"
+					],
+					"port": "3000",
+					"path": [
+						"type",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "supprimer un type de voiture avec son id",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNjc4ODExMzc4fQ.Cs4ewfcnrI3GTbaqqBSPloCPUg0HUGyzBr2wnxMqjJQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\":\"2\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "65.38.68.41:3000/type/",
+					"host": [
+						"65",
+						"38",
+						"68",
+						"41"
+					],
+					"port": "3000",
+					"path": [
+						"type",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ajouter un prix de location",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNjc4ODExMzc4fQ.Cs4ewfcnrI3GTbaqqBSPloCPUg0HUGyzBr2wnxMqjJQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"prix_par_jour\":150,\r\n    \"prix_par_semain\":600,\r\n    \"prix_par_mois\":null,\r\n    \"prix_par_annee\":null\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "65.38.68.41:3000/prix/",
+					"host": [
+						"65",
+						"38",
+						"68",
+						"41"
+					],
+					"port": "3000",
+					"path": [
+						"prix",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "afficher tout les prix de location",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNjc4ODExMzc4fQ.Cs4ewfcnrI3GTbaqqBSPloCPUg0HUGyzBr2wnxMqjJQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "65.38.68.41:3000/prix/",
+					"host": [
+						"65",
+						"38",
+						"68",
+						"41"
+					],
+					"port": "3000",
+					"path": [
+						"prix",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "afficher prix de location par id",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNjc4ODExMzc4fQ.Cs4ewfcnrI3GTbaqqBSPloCPUg0HUGyzBr2wnxMqjJQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "65.38.68.41:3000/prix/1",
+					"host": [
+						"65",
+						"38",
+						"68",
+						"41"
+					],
+					"port": "3000",
+					"path": [
+						"prix",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "supprimer un prix de location",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNjc4ODExMzc4fQ.Cs4ewfcnrI3GTbaqqBSPloCPUg0HUGyzBr2wnxMqjJQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\":2\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "65.38.68.41:3000/prix/",
+					"host": [
+						"65",
+						"38",
+						"68",
+						"41"
+					],
+					"port": "3000",
+					"path": [
+						"prix",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "recuper tout les succursales",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "65.38.68.41:3000/succursale",
+					"host": [
+						"65",
+						"38",
+						"68",
+						"41"
+					],
+					"port": "3000",
+					"path": [
+						"succursale"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "recuper une succursale avec l'id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "65.38.68.41:3000/succursale/1",
+					"host": [
+						"65",
+						"38",
+						"68",
+						"41"
+					],
+					"port": "3000",
+					"path": [
+						"succursale",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ajouter une succursale",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNjc4ODExMzc4fQ.Cs4ewfcnrI3GTbaqqBSPloCPUg0HUGyzBr2wnxMqjJQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nom\":\"test\",\r\n    \"description\":\"un test postman\",\r\n    \"Ville\":\"testville\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "65.38.68.41:3000/succursale/",
+					"host": [
+						"65",
+						"38",
+						"68",
+						"41"
+					],
+					"port": "3000",
+					"path": [
+						"succursale",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "supprimer une succursale avec son id",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNjc4ODExMzc4fQ.Cs4ewfcnrI3GTbaqqBSPloCPUg0HUGyzBr2wnxMqjJQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\":2\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "65.38.68.41:3000/succursale/",
+					"host": [
+						"65",
+						"38",
+						"68",
+						"41"
+					],
+					"port": "3000",
+					"path": [
+						"succursale",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Voir tout les voitures",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNjc4ODExMzc4fQ.Cs4ewfcnrI3GTbaqqBSPloCPUg0HUGyzBr2wnxMqjJQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "65.38.68.41:3000/voiture",
+					"host": [
+						"65",
+						"38",
+						"68",
+						"41"
+					],
+					"port": "3000",
+					"path": [
+						"voiture"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "voir plus d'information sur un voiture avec l'id",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNjc4ODExMzc4fQ.Cs4ewfcnrI3GTbaqqBSPloCPUg0HUGyzBr2wnxMqjJQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "65.38.68.41:3000/voiture/1",
+					"host": [
+						"65",
+						"38",
+						"68",
+						"41"
+					],
+					"port": "3000",
+					"path": [
+						"voiture",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ajouter une voiture",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNjc4ODExMzc4fQ.Cs4ewfcnrI3GTbaqqBSPloCPUg0HUGyzBr2wnxMqjJQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nom\":\"m3\",\r\n    \"annee\":2023,\r\n    \"description\":\"voiture electrique de bmw sport\",\r\n    \"type_voiture\":1,\r\n    \"succursale\":1,\r\n    \"prix_location\":1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "65.38.68.41:3000/voiture/",
+					"host": [
+						"65",
+						"38",
+						"68",
+						"41"
+					],
+					"port": "3000",
+					"path": [
+						"voiture",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "supprimer une voiture avec son id",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNjc4ODExMzc4fQ.Cs4ewfcnrI3GTbaqqBSPloCPUg0HUGyzBr2wnxMqjJQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\":2\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "65.38.68.41:3000/voiture/",
+					"host": [
+						"65",
+						"38",
+						"68",
+						"41"
+					],
+					"port": "3000",
+					"path": [
+						"voiture",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "afficher mes location",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNjc4ODExMzc4fQ.Cs4ewfcnrI3GTbaqqBSPloCPUg0HUGyzBr2wnxMqjJQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "65.38.68.41:3000/location",
+					"host": [
+						"65",
+						"38",
+						"68",
+						"41"
+					],
+					"port": "3000",
+					"path": [
+						"location"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "afficher mes location avec l'id",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNjc4ODExMzc4fQ.Cs4ewfcnrI3GTbaqqBSPloCPUg0HUGyzBr2wnxMqjJQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "65.38.68.41:3000/location/1",
+					"host": [
+						"65",
+						"38",
+						"68",
+						"41"
+					],
+					"port": "3000",
+					"path": [
+						"location",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "réserver un voiture",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNjc4ODExMzc4fQ.Cs4ewfcnrI3GTbaqqBSPloCPUg0HUGyzBr2wnxMqjJQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"date_fin\":\"2023-03-31\",\r\n    \"date_debut\":\"2023-03-03\",\r\n    \"id_voiture\":1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "65.38.68.41:3000/location/",
+					"host": [
+						"65",
+						"38",
+						"68",
+						"41"
+					],
+					"port": "3000",
+					"path": [
+						"location",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "annuler la location",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNjc4ODExMzc4fQ.Cs4ewfcnrI3GTbaqqBSPloCPUg0HUGyzBr2wnxMqjJQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\":1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "65.38.68.41:3000/location/",
+					"host": [
+						"65",
+						"38",
+						"68",
+						"41"
+					],
+					"port": "3000",
+					"path": [
+						"location",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "modifier ma location",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNjc4ODExMzc4fQ.Cs4ewfcnrI3GTbaqqBSPloCPUg0HUGyzBr2wnxMqjJQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\":1,\r\n    \"duree\":1,\r\n    \"date_debut\":null,\r\n    \"id_voiture\":null,\r\n    \"etat_location\":null,\r\n    \"date_fin\":null,\r\n    \"succursale_reture\":null\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "65.38.68.41:3000/location/",
+					"host": [
+						"65",
+						"38",
+						"68",
+						"41"
+					],
+					"port": "3000",
+					"path": [
+						"location",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ajouter un problem de location",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNjc4ODExMzc4fQ.Cs4ewfcnrI3GTbaqqBSPloCPUg0HUGyzBr2wnxMqjJQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"idlocation\":1,\r\n    \"frais\":0.0,\r\n    \"problem\":\" test de l'api des problem de location\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "65.38.68.41:3000/problem/",
+					"host": [
+						"65",
+						"38",
+						"68",
+						"41"
+					],
+					"port": "3000",
+					"path": [
+						"problem",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "voir la list de tout les problems",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNjc4ODExMzc4fQ.Cs4ewfcnrI3GTbaqqBSPloCPUg0HUGyzBr2wnxMqjJQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "65.38.68.41:3000/problem/",
+					"host": [
+						"65",
+						"38",
+						"68",
+						"41"
+					],
+					"port": "3000",
+					"path": [
+						"problem",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "voir un problem avec son id",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNjc4ODExMzc4fQ.Cs4ewfcnrI3GTbaqqBSPloCPUg0HUGyzBr2wnxMqjJQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "65.38.68.41:3000/problem/1",
+					"host": [
+						"65",
+						"38",
+						"68",
+						"41"
+					],
+					"port": "3000",
+					"path": [
+						"problem",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "supprimer un problem a l'id",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNjc4ODExMzc4fQ.Cs4ewfcnrI3GTbaqqBSPloCPUg0HUGyzBr2wnxMqjJQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\":1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "65.38.68.41:3000/problem/",
+					"host": [
+						"65",
+						"38",
+						"68",
+						"41"
+					],
+					"port": "3000",
+					"path": [
+						"problem",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "calculer le prix de la location",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNjc4ODExMzc4fQ.Cs4ewfcnrI3GTbaqqBSPloCPUg0HUGyzBr2wnxMqjJQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"date_fin\":\"2023-03-31\",\r\n    \"date_debut\":\"2023-03-03\",\r\n    \"id_voiture\":1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "65.38.68.41:3000/location/price",
+					"host": [
+						"65",
+						"38",
+						"68",
+						"41"
+					],
+					"port": "3000",
+					"path": [
+						"location",
+						"price"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
