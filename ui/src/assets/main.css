@@ -1,0 +1,28 @@
+@import './base.css';
+
+#app {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+
+  font-weight: normal;
+}
+
+nav{
+  display: flex;
+  justify-content: space-around;
+}
+
+nav>a{
+margin-right: 5rem;
+}
+
+.department-list{
+  display: flex;
+  flex-wrap: wrap;
+}
+.department-list>div{
+  flex:0 0 48%;
+  margin: 10px;
+  border: 1px solid green;
+}
