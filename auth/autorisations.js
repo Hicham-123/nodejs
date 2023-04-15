@@ -156,7 +156,7 @@ export const issecretaire = async (req, res, next) => {
 export const isBasic = async (req, res, next) => {
 
     //Extraire le userId de la requete precedente
-    const userId = req.userId
+    const userId = req.userId;
     //Retourner ce message si pas de userId
     if (!userId) return res.status(403).json({ message: "Pas d'utilisateur" })
     try {
@@ -169,11 +169,10 @@ export const isBasic = async (req, res, next) => {
             //Extraire les roles de l'utilisateur de la base de donnee
             const roles = await user.getRoles()
   
-           if (roles.length>0 || req.params.id == userId) {
+           if (roles.length>0 || req.params.id == userId||req.body.userid == userId) {
                 next()
                 return
             }
-
             //Si l'utilisateur n'est pas admin, envoyer ce message
             return res.status(403).json({ message: 'Doit avoir les droits admin' })
 
